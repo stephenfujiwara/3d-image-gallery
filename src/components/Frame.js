@@ -17,7 +17,7 @@ export default function Frame({url, ...props}) {
                 <meshBasicMaterial color={"white"}/>
                 <Image ref={image} url={url} position={[0, 0, 0.7]} scale={[0.9, 0.9, 0.9]}/>
             </mesh>
-    </mesh>
+        </mesh>
     </group>
     )
 }
