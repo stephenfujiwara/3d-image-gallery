@@ -1,15 +1,10 @@
-import React from "react";
-import { useGLTF } from "@react-three/drei";
+import React from "react"
+import { Cylinder } from "@react-three/drei"
 
-export default function Prism(props) {
-  const { nodes } = useGLTF("/prism.glb");
-  return (
-    <group {...props} dispose={null}>
-      <mesh geometry={nodes.Cone.geometry} position={[0, 0.09, -0.09]}>
-        <meshPhysicalMaterial clearcoat={1}/>
-      </mesh>
-    </group>
-  );
+export default function Prism2(props) {
+    return (
+        <Cylinder args={[0, 2, 2, 4]} {...props}>
+            <meshNormalMaterial/>
+        </Cylinder>
+    )
 }
-
-useGLTF.preload("/prism.glb");

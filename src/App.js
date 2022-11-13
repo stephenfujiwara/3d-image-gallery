@@ -1,32 +1,33 @@
-import React, { Suspense } from 'react'
+import { useRef, Suspense } from 'react'
 import { Canvas } from "@react-three/fiber"
-import { OrbitControls } from "@react-three/drei"
+import { FirstPersonControls} from "@react-three/drei"
 
 import "./styles.css"
 
 import Text from "./components/Text"
 import Prism from "./components/Prism"
-import Prism2 from "./components/Prism2"
 import Stars from "./components/Stars"
 
 export default function App() {
+  const ref = useRef()
+  
+  function stopMoving() {
+    ref.current.autoForward = !ref.current.autoForward
+    ref.current.activeLook = !ref.current.activeLook
+    console.log(ref.current.autoForward)
+  }
+
   return (
     <div className="canvas-container">
-      <Canvas camera={{
-        fov: 75,
-        near: 0.1,
-        far: 1000, 
-        position: [0, 0, 10]
-      }}>
+      <Canvas onClick={stopMoving}>
+        <color attach="background" args={[0, 0, 0]}/>
         <Suspense fallback={null}>
-          <OrbitControls/>
+          <FirstPersonControls ref={ref} autoForward={true} movementForward={50} lookSpeed={0.15} heightMax={0} heightCoef={0}/>
           <Stars/>
-          <pointLight position={[0, 5, 5]} intensity={0.5} />
           <Text/>
-          <Prism2 position={[0, -5, 0]} />
+          <Prism position={[0, -5, 0]} />
         </Suspense>
       </Canvas>
     </div>
   )
 }
-
