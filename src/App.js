@@ -4,10 +4,12 @@ import { FirstPersonControls } from "@react-three/drei";
 
 import "./styles.css";
 
-import Intro from "./components/Intro";
 import Stars from "./components/Stars";
 import Frames from "./components/Frames";
+import Intro from "./components/Intro";
 import { images } from "./components/images";
+
+// in frame: look at route with params, if id === url, then render component on the side with links, youtube/spotify
 
 export default function App() {
   return (
