@@ -97,6 +97,7 @@ canvas {
 .helpinfo-title {
   display: flex;
   justify-content: center;
+  margin: 1px;
 }
 
 .helpinfo-container ul {
@@ -109,4 +110,8 @@ canvas {
 
 .helpinfo-container h2 {
   font-size: 10px;
+}
+
+.helpinfo-container h3 {
+  font-size: 7px;
 }
