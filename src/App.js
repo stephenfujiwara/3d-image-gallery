@@ -8,6 +8,7 @@ import Stars from "./components/Stars";
 import Frames from "./components/Frames";
 import Intro from "./components/Intro";
 import Sidebar from "./components/Sidebar";
+import HelpInfo from "./components/HelpInfo";
 import { images } from "./components/images";
 
 export default function App() {
@@ -19,13 +20,8 @@ export default function App() {
 
   return (
     <>
-      {sidebar?.artist && (
-        <Sidebar
-          artist={sidebar.artist}
-          album={sidebar.album}
-          title={sidebar.title}
-        />
-      )}
+      {sidebar?.artist && <Sidebar {...sidebar} />}
+      {sidebar?.artist && <HelpInfo />}
       <Canvas camera={{ position: [0, 0, 6] }}>
         <color attach="background" args={[0, 0, 0]} />
         <Suspense fallback={null}>
